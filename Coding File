@@ -18,4 +18,29 @@ glimpse{subway}
 
 ```{r}
 glimpse{subway}
-````
+```
+
+```{r}
+ subway <- subway |>
+     rename('performance' = 'customer journey time performance')
+     rename('platform_time' = 'additional platform time')
+     rename('train_time' = 'additional train time')
+glimpse(subway)
+```
+
+
+```{r}
+subway_lm <- lm(performance ~ platform_time + line + train_time +
+                  num_passengers + period + over_five_mins, data = subway)
+summary(subway_lm)
+```
+
+
+```{r}
+library(car)
+library(vip)
+plot(subway_lm)
+vip(subway_lm)
+```
+
+
