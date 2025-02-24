@@ -43,4 +43,7 @@ plot(subway_lm)
 vip(subway_lm)
 ```
 
+```{r}
+anova(subway_lm2, subway_lm)
+```
 
